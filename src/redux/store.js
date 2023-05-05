@@ -3,7 +3,6 @@ import { followersApi } from "./users/followersApi";
 import { reducer } from "./reducer";
 import {
     persistStore,
-    persistReducer,
     FLUSH,
     REHYDRATE,
     PAUSE,
@@ -11,21 +10,9 @@ import {
     PURGE,
     REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import { usersReducer } from "./users/usersSlice";
-
-const persistConfig = {
-    key: "users",
-    storage,
-    whitelist: ["following"],
-};
-const persistedReducer = persistReducer(persistConfig, usersReducer);
 
 export const store = configureStore({
-    reducer: {
-        users: persistedReducer,
-        [followersApi.reducerPath]: followersApi.reducer,
-    },
+    reducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
