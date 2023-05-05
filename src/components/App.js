@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layaout from "./Layout/Layout";
 import { Home } from "../pages/Home/Home";
+import Tweets from "../pages/Tweets/Tweets";
 
 function App() {
     return (
@@ -8,6 +9,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layaout />}>
                     <Route index element={<Home />} />
+                    <Route path="tweets" element={<Tweets />} />
                 </Route>
             </Routes>
         </>

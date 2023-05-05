@@ -4,7 +4,7 @@ import style from "./AppBar.module.scss";
 
 const navItems = [
     { href: "/", text: "Home" },
-    { href: "task", text: "Task" },
+    { href: "tweets", text: "Tweets" },
 ];
 
 function markup({ href, text }, i) {
