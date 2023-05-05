@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
 
-const taskSlise = createSlice({
-    name: "task",
+const usersSlice = createSlice({
+    name: "user",
     initialState,
     reducers: {
         createFilter: (state, action) => {
@@ -10,4 +10,4 @@ const taskSlise = createSlice({
         },
     },
 });
-export const taskReducer = taskSlise.reducer;
+export const usersReducer = usersSlice.reducer;

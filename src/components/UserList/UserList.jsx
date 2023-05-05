@@ -1,19 +1,22 @@
+import { useGetFollowersQuery } from "../../redux/users/followersApi";
 import CardUser from "../CardUsers/CardUser";
-const apiii = [
-    {
-        user: "Earl Harvey",
-        tweets: "6",
-        avatar: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/908.jpg",
-        followers: 79,
-        id: "1",
-    },
-];
+import { Loader } from "../Loader/Loader";
+import style from "./UserList.module.scss";
+
 const UserList = () => {
+    const { data: users, isError, isLoading } = useGetFollowersQuery();
+
     return (
         <>
-            {apiii.map((user) => (
-                <CardUser user={user} key={user.id} />
-            ))}
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <ul className={style.userList}>
+                    {users.map((user) => (
+                        <CardUser user={user} key={user.id} />
+                    ))}
+                </ul>
+            )}
         </>
     );
 };
