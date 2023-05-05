@@ -12,8 +12,9 @@ const CardUser = ({ user }) => {
     const { id, tweets, followers, avatar } = user;
     const [unFollowing, { isLoading }] = useUpdateFollowersMutation();
     const following = useSelector(selectFollowing);
-    const isFollowing = following.includes(id);
     const dispatch = useDispatch();
+
+    const isFollowing = following.includes(id);
 
     const handleFollow = () => {
         const userUpdate = {
@@ -43,10 +44,12 @@ const CardUser = ({ user }) => {
                 </div>
                 <ul className={style.info}>
                     <li>
-                        <h3 className={style.text}> {tweets} tweets</h3>
+                        <h3 className={style.text}>{normNum(tweets)} tweets</h3>
                     </li>
                     <li>
-                        <h3 className={style.text}> {followers} followers</h3>
+                        <h3 className={style.text}>
+                            {normNum(followers)} followers
+                        </h3>
                     </li>
                 </ul>
                 <Button click={() => handleFollow()} styleAdd={isFollowing}>
@@ -57,4 +60,7 @@ const CardUser = ({ user }) => {
     );
 };
 
+function normNum(num) {
+    return num.toLocaleString().replace(/\s/g, ",");
+}
 export default CardUser;
