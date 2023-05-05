@@ -6,15 +6,15 @@ import style from "./CardUser.module.scss";
 
 const CardUser = ({ user }) => {
     const { id, tweets, followers, avatar } = user;
-    const [updata, { isLoading }] = useUpdateFollowersMutation();
-    const isFollowing = true;
+    const [unFollowing, { isLoading }] = useUpdateFollowersMutation();
+    const isFollowing = false;
 
     const handleFollow = (userId) => {
         const userUpdate = {
             id: userId,
-            followers: isFollowing ? followers + 1 : followers - 1,
+            followers: isFollowing ? followers - 1 : followers + 1,
         };
-        updata(userUpdate);
+        unFollowing(userUpdate);
     };
 
     return (
@@ -40,7 +40,7 @@ const CardUser = ({ user }) => {
                 <button
                     type="button"
                     className={
-                        isFollowing ? style.btn : `${style.btn} ${style.active}`
+                        isFollowing ? `${style.btn} ${style.active}` : style.btn
                     }
                     onClick={() => handleFollow(id)}
                 >

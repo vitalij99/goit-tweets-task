@@ -9,5 +9,14 @@ main {
 
 .container {
     margin: 0 auto;
-    padding: 0 10px;
+    max-width: 380px;
+
+    @media screen and (min-width: 790px) {
+        max-width: 790px;
+    }
+    @media screen and (min-width: 1200px)  {
+        max-width: 1200px;
+
+    }
+        
 }
