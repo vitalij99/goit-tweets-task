@@ -1,9 +1,9 @@
 import UserList from "../../components/UserList/UserList";
-
+import "./Tweets.scss";
 const Tweets = () => {
     return (
         <>
-            <div>
+            <div className="wrapper">
                 <UserList />
             </div>
         </>

@@ -1,20 +1,31 @@
+import { useDispatch, useSelector } from "react-redux";
 import avatarPlug from "../../images/user/avatar.png";
 import { useUpdateFollowersMutation } from "../../redux/users/followersApi";
+import Button from "../Button/Button";
 import { Loader } from "../Loader/Loader";
 
 import style from "./CardUser.module.scss";
+import { selectFollowing } from "../../redux/users/selectors";
+import { followingUser } from "../../redux/users/usersSlice";
 
 const CardUser = ({ user }) => {
     const { id, tweets, followers, avatar } = user;
     const [unFollowing, { isLoading }] = useUpdateFollowersMutation();
-    const isFollowing = false;
+    const following = useSelector(selectFollowing);
+    const isFollowing = following.includes(id);
+    const dispatch = useDispatch();
 
-    const handleFollow = (userId) => {
+    const handleFollow = () => {
         const userUpdate = {
-            id: userId,
+            id,
             followers: isFollowing ? followers - 1 : followers + 1,
         };
         unFollowing(userUpdate);
+        if (isFollowing) {
+            dispatch(unFollowing(id));
+        } else {
+            dispatch(followingUser(id));
+        }
     };
 
     return (
@@ -37,15 +48,9 @@ const CardUser = ({ user }) => {
                         <h3 className={style.text}> {followers} followers</h3>
                     </li>
                 </ul>
-                <button
-                    type="button"
-                    className={
-                        isFollowing ? `${style.btn} ${style.active}` : style.btn
-                    }
-                    onClick={() => handleFollow(id)}
-                >
+                <Button click={() => handleFollow()} styleAdd={isFollowing}>
                     {isFollowing ? "Following" : "Follow"}
-                </button>
+                </Button>
             </li>
         </>
     );
