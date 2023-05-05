@@ -5,8 +5,10 @@ const usersSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        unFollowing: ({ following }, { payload }) => {
-            following.following.filter((user) => user !== payload);
+        unfollowingUser: (state, { payload }) => {
+            state.following = state.following.filter(
+                (user) => user !== payload
+            );
         },
         followingUser: ({ following }, { payload }) => {
             following.push(payload);
@@ -14,4 +16,4 @@ const usersSlice = createSlice({
     },
 });
 export const usersReducer = usersSlice.reducer;
-export const { unFollowing, followingUser } = usersSlice.actions;
+export const { unfollowingUser, followingUser } = usersSlice.actions;

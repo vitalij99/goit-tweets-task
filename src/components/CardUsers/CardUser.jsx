@@ -6,7 +6,7 @@ import { Loader } from "../Loader/Loader";
 
 import style from "./CardUser.module.scss";
 import { selectFollowing } from "../../redux/users/selectors";
-import { followingUser } from "../../redux/users/usersSlice";
+import { followingUser, unfollowingUser } from "../../redux/users/usersSlice";
 
 const CardUser = ({ user }) => {
     const { id, tweets, followers, avatar } = user;
@@ -21,8 +21,9 @@ const CardUser = ({ user }) => {
             followers: isFollowing ? followers - 1 : followers + 1,
         };
         unFollowing(userUpdate);
+
         if (isFollowing) {
-            dispatch(unFollowing(id));
+            dispatch(unfollowingUser(id));
         } else {
             dispatch(followingUser(id));
         }
