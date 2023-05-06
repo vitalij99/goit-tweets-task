@@ -21,6 +21,7 @@ const Tweets = () => {
     useEffect(() => {
         if (!option) {
             dispatch(filtersUser("all"));
+            setSearchParams({ filter: "all" });
         } else dispatch(filtersUser(option.value));
     }, [dispatch, option]);
 
