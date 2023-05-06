@@ -12,7 +12,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="goit-tweets-task">
             <Provider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                     <App />
