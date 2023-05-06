@@ -5,17 +5,19 @@ import { Loader } from "../Loader/Loader";
 import style from "./UserList.module.scss";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilters, selectUsers } from "../../redux/users/selectors";
+import { selectUsers } from "../../redux/users/selectors";
 import {
     showAllUsers,
     showFollowUsers,
     showFollowingUsers,
 } from "../../redux/users/usersSlice";
+import { Radio } from "react-loader-spinner";
 
 const UserList = () => {
     const { data, isError, isLoading } = useGetFollowersQuery();
     const { filters, showUsers } = useSelector(selectUsers);
     const dispatch = useDispatch();
+
     const [visibleCards, setVisibleCards] = useState(3);
 
     const handleClick = () => {
@@ -39,6 +41,12 @@ const UserList = () => {
     const paginationUsers = showUsers?.slice(0, visibleCards);
     return (
         <>
+            {isError && (
+                <>
+                    <h1>Error</h1>
+                    <Radio colors={["#ff0000", "#ff0000", "#ff0000"]} />
+                </>
+            )}
             {isLoading ? (
                 <Loader />
             ) : (
