@@ -1,5 +1,5 @@
-import React from "react";
+import style from "./Home.module.scss";
 
 export const Home = () => {
-    return <div>Home</div>;
+    return <h1 className={style.title}>Welcome to Tweets!</h1>;
 };

@@ -7,14 +7,16 @@ const AppBar = () => {
 
     return (
         <header className={style.header}>
-            <nav>
-                <NavLink
-                    to={location.pathname === "/tweets" ? "/" : "tweets"}
-                    className={style.link}
-                >
-                    {location.pathname === "/tweets" ? "Back" : "Tweets"}
-                </NavLink>
-            </nav>
+            <div className={style.container}>
+                <nav>
+                    <NavLink
+                        to={location.pathname === "/tweets" ? "/" : "tweets"}
+                        className={style.link}
+                    >
+                        {location.pathname === "/tweets" ? "Back" : "Tweets"}
+                    </NavLink>
+                </nav>
+            </div>
         </header>
     );
 };

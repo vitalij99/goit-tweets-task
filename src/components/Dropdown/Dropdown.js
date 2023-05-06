@@ -8,6 +8,7 @@ export const customStyles = {
     input: (provided, state) => ({
         ...provided,
         color: "#fff",
+        cursor: "pointer",
     }),
     singleValue: (provided, state) => ({
         ...provided,
@@ -15,7 +16,8 @@ export const customStyles = {
     }),
     option: (provided, state) => ({
         ...provided,
-        backgroundColor: state.isFocused ? "#471CAA" : " #471CA9",
+        cursor: "pointer",
+        backgroundColor: state.isFocused ? "#331CAA" : " #471CA9",
         color: state.isSelected ? "#5CD3A8" : "#fff",
     }),
     control: (provided, state) => ({
