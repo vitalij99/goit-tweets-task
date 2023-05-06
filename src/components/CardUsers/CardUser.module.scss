@@ -44,20 +44,16 @@
     box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
     border-radius: 86px;
 
-    
-    &::before,
-        &::after {
-            content: "";
-            position: absolute;
-        }
-        &::before {
-            left:  36px;
-            bottom:  -15px;
-            translate: (-50% -50%);
-            width: 308px;
-            height: 168px;
-            background-image: url(../../images/user/bg-user.png);
-        }
+    &::before {
+        content: "";
+        position: absolute;
+        left:  36px;
+        bottom:  -15px;
+        translate: (-50% -50%);
+        width: 308px;
+        height: 168px;
+        background-image: url(../../images/user/bg-user.png);
+    }
         
 }
 .userImg {    
@@ -68,8 +64,10 @@
 .info {
     text-align: center;
     list-style: none;
-    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 26px;
     padding: 0;
+    
 }
 .text {
     font-family: 'Montserrat';
@@ -79,4 +77,8 @@
     line-height: 1.2;
     text-transform: uppercase;
     color: #EBD8FF;
+    margin: 0;
+    &:first-child{
+        margin-bottom: 10px;
+    }
 }
