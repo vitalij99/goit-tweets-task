@@ -23,7 +23,7 @@ const Tweets = () => {
             dispatch(filtersUser("all"));
             setSearchParams({ filter: "all" });
         } else dispatch(filtersUser(option.value));
-    }, [dispatch, option]);
+    }, [dispatch, option, setSearchParams]);
 
     const handleChange = ({ value }) => {
         setSearchParams({ filter: value });
