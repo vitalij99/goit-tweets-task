@@ -1,7 +1,7 @@
 export const options = [
-    { value: "all", label: "All" },
+    { value: "all", label: "Show all" },
     { value: "follow", label: "Follow" },
-    { value: "followings", label: "Followings show all" },
+    { value: "followings", label: "Followings" },
 ];
 
 export const customStyles = {
