@@ -42,14 +42,17 @@ const UserList = () => {
             {isLoading ? (
                 <Loader />
             ) : (
-                <ul className={style.userList}>
-                    {paginationUsers.map((user) => (
-                        <CardUser user={user} key={user.id} />
-                    ))}
-                </ul>
-            )}
-            {showUsers?.length > visibleCards && (
-                <Button click={() => handleClick()}>load more</Button>
+                <>
+                    <ul className={style.userList}>
+                        {paginationUsers.map((user) => (
+                            <CardUser user={user} key={user.id} />
+                        ))}
+                    </ul>
+
+                    {showUsers?.length > visibleCards && (
+                        <Button click={() => handleClick()}>load more</Button>
+                    )}
+                </>
             )}
         </>
     );

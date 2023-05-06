@@ -7,7 +7,7 @@ import { persistor, store } from "./redux/store";
 import { BrowserRouter } from "react-router-dom";
 
 import "./index.css";
-import reportWebVitals from "./reportWebVitals";
+
 import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -21,5 +21,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </BrowserRouter>
     </React.StrictMode>
 );
-
-reportWebVitals();
